@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900
+    before:fixed before:inset-0 before:bg-[url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop')] 
+    before:bg-cover before:bg-center before:opacity-10 before:blur-2xl before:-z-10
+    after:fixed after:inset-0 after:bg-gradient-to-br after:from-blue-500/5 after:via-indigo-500/5 after:to-purple-500/5 after:-z-10;
+  }
+}
+
+@layer components {
+  .form-input {
+    @apply w-full px-3 py-2 border border-white/20 rounded-lg 
+    bg-white/10 backdrop-blur-md transition-all duration-200 text-white
+    focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:outline-none
+    hover:border-white/30 hover:bg-white/15
+    placeholder:text-gray-400;
+  }
+  
+  .form-textarea {
+    @apply form-input resize-none;
+  }
+  
+  .glass-card {
+    @apply bg-gray-900/70 backdrop-blur-2xl rounded-xl
+    border border-white/20 p-6 space-y-6
+    shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]
+    hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.1)]
+    hover:bg-gray-900/80 transition-all duration-500;
+  }
+
+  .success-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-blue-600/95 via-indigo-600/95 to-purple-600/95
+    backdrop-blur-xl;
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .success-content {
+    @apply text-center px-6;
+    animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .success-icon {
+    @apply w-24 h-24 mx-auto mb-6 text-white;
+    animation: bounceIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
